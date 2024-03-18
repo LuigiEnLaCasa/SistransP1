@@ -7,15 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import main.java.modelo.PuntoDeAtencion;
+import modelo.PuntoDeAtencion;
+
+
 
 
 public interface PuntoDeAtencionRepository extends JpaRepository<PuntoDeAtencion, Integer>{
 
         @Modifying
         @Transactional
-        @Query(value = "INSERT INTO PuntosAtencion (id) 
-        VALUES ( bancAndes_seq.nextval , :id)", nativeQuery = true)
+        @Query(value = "INSERT INTO PuntosAtencion (id) VALUES ( bancAndes_seq.nextval , :id)", nativeQuery = true)
         void insertarPuntoDeAtencion(@Param("id") Integer id);
 
      

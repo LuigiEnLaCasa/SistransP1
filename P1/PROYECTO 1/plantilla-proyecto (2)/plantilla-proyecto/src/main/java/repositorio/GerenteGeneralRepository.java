@@ -7,15 +7,16 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import main.java.modelo.GerenteGeneral;
+import modelo.GerenteGeneral;
+
+
 
 
 public interface GerenteGeneralRepository extends JpaRepository<GerenteGeneral, Integer>{
 
         @Modifying
         @Transactional
-        @Query(value = "INSERT INTO empleados (login) 
-        VALUES ( bancAndes_seq.nextval , :login)", nativeQuery = true)
+        @Query(value = "INSERT INTO empleados (login) VALUES ( bancAndes_seq.nextval , :login)", nativeQuery = true)
         void insertarGerente(@Param("login") String login);
 
 

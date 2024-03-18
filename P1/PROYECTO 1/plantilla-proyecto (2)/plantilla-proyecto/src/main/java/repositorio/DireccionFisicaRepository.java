@@ -7,7 +7,9 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import main.java.modelo.DireccionFisica;
+import modelo.DireccionFisica;
+
+
 
 
 
@@ -15,8 +17,7 @@ public interface DireccionFisicaRepository extends JpaRepository<DireccionFisica
 
         @Modifying
         @Transactional
-        @Query(value = "INSERT INTO direccion_fisica (direccion,ciudad,deptartamento,codigo_postal) 
-        VALUES (bancAndes_seq.nextval, :direccion,:ciudad,:deptartamento,:codigo_postal)", nativeQuery = true)
+        @Query(value = "INSERT INTO direccion_fisica (direccion,ciudad,deptartamento,codigo_postal) VALUES (bancAndes_seq.nextval, :direccion,:ciudad,:deptartamento,:codigo_postal)", nativeQuery = true)
         void insertarDireccionFisica(@Param("direccion") String direccion, @Param("ciudad") String ciudad, @Param("deptartamento") String deptartamento, @Param("codigo_postal") String codigo_postal);
               
 }
